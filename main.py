@@ -82,7 +82,7 @@ def train(data, idx=None):
 
     (F.nll_loss(model(data)[mask], data.y[mask]) / K).backward()
 
-    if idx == K - 1:
+    if idx is None or idx == K - 1:
         optimizer.step()
         optimizer.zero_grad()
 
